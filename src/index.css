@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .font-lato {
+    font-family: 'Lato', sans-serif;
+  }
+}
+
+body {
+  @apply bg-[#0a0a0a] text-white;
+}
+
+@keyframes textSweep {
+  0% {
+    background-position: -100% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.badge-glow span {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.9) 0%,
+    #baf463 50%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: textSweep 4s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(186, 244, 99, 0.3);
+  position: relative;
+}
+
+.badge-glow span::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(186, 244, 99, 0.2),
+    transparent
+  );
+  filter: blur(4px);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask-composite: xor;
+  animation: textSweep 4s ease-in-out infinite;
+}
